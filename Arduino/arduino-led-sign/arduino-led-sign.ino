@@ -35,7 +35,7 @@ void setup() {
     // Start with sign off
     stopLEDs();
 
-  // Connect to WiFi
+    // Connect to WiFi
     WiFi.mode(WIFI_STA);
     WiFi.begin(ssid, pass);
 
@@ -64,7 +64,7 @@ void loop() {
     server.handleClient();
 
     if (currentState) {
-        // Sign is off, turn it on
+        // When the sign is toggled on, run the FastLED-specific code
         chooseColorPalette();
         colortwinkles();
         FastLED.show();  
@@ -104,7 +104,7 @@ void stopLEDs() {
     Serial.println("Sign is being stopped...");
 }
 
-// Source: https://gist.github.com/kriegsman/5408ecd397744ba0393e
+//  Source: https://gist.github.com/kriegsman/5408ecd397744ba0393e
 //
 //  Twinkling 'holiday' lights that fade up and down in brightness.
 //  Colors are chosen from a palette; a few palettes are provided.
